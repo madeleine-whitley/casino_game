@@ -11,38 +11,29 @@
 # require_relative 'Person.rb'
 
 
-class App
-  attr_accessor :Person
+# class App
+#   attr_accessor :Person
 
-  def initialize
-    @person = init_person
-  end
+#   def initialize
+#     @person = init_person
+#   end
 
   def init_person
     puts "Enter your name"
-    nname = gets.strip
+    @name = gets.strip
     puts "Enter your balance"
-    nbalance = gets.to_i
-    new_person = {name: nname, balance: nbalance}
-    @user_info << new_person
-    @person = Person.new(nname, nbalance)
-    
+    @balance = gets.to_i
   end
-end
-
-@user_info = [
-  {}
-]
+# end
 
 
-
-
-class Person
+class Person 
   attr_accessor :name, :balance
 
   def initialize (name, balance)
-    @name = name
-    @balance = balance 
+    name = name
+    balance = balance 
+    puts "Hello #{name}, Your current balance is #{balance}"
   end
 
   def increase_balance(number)
@@ -52,11 +43,21 @@ class Person
   def decrease_balance(number)
     @balance -= number 
   end
-
 end 
 
+class Bet < Person
+  attr_accessor :name, :balance
+
+  def initialize (bet)
+    puts "How much would you like to bet?"
+    bet = gets.to_i
+    bet.Person.new(decrease_balance)
+    puts "You bet #{bet}, Your current balance is #{@balance}"
+  end
+end
 
 def slots
+  Bet.new(@balance)
     sym1 = rand(1..2) 
     sym2 =  rand(1..2)
     sym3 =  rand(1..2)
@@ -87,13 +88,15 @@ def menu
   puts '6. Exit'
   menu_choice = gets.strip.to_i
   if menu_choice == 1
-    app = App.new 
+    # app = App.new 
+    init_person
+    current_user = Person.new(@name, @balance)
     menu
   elsif menu_choice == 2
     # puts 'Here are your available items'
     
     # food_list
-
+    
     slots
     # menu
   # elsif menu_choice == 3

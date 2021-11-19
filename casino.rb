@@ -20,12 +20,12 @@ class App
 
   def init_person
     puts "Enter your name"
-    name = gets.strip
+    nname = gets.strip
     puts "Enter your balance"
-    balance = gets.to_i
-    new_person = {name: name, balance: balance}
-    @user_info.unshift(new_person)
-    @person = Person.new(name, balance)
+    nbalance = gets.to_i
+    new_person = {name: nname, balance: nbalance}
+    @user_info << new_person
+    @person = Person.new(nname, nbalance)
     
   end
 end
@@ -74,6 +74,8 @@ def slots
     else
       puts "You Lost :( "
   end
+  # how much you win if you win 
+  # placing an intial bet
 end
 
 def menu

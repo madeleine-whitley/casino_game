@@ -57,15 +57,15 @@ end
 
 
 def slots
-    sym1 = 1#rand(1..2) 
-    sym2 = 1# rand(1..2)
-    sym3 = 1# rand(1..2)
-    winner = sym1 & sym2 & sym3
-    winning_key1 = "1, 1, 1 "
-    winning_key2 = "2, 2, 2"
+    sym1 = rand(1..2) 
+    sym2 =  rand(1..2)
+    sym3 =  rand(1..2)
+    winner = "#{sym1}#{sym2}#{sym3}"
+    winning_key1 = "111"
+    winning_key2 = "222"
     puts "Click 1 to pull the lever!"
     lever = gets.to_i
-    puts "| #{sym1} || #{sym2} || #{sym3}  ,,,, #{winner}|"
+    puts "| #{sym1} || #{sym2} || #{sym3} |"
     # puts winner
     if winner == winning_key1
       puts "You won!"
@@ -73,7 +73,7 @@ def slots
         puts "You won!"
     else
       puts "You Lost :( "
-end
+  end
 end
 
 def menu

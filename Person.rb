@@ -7,12 +7,15 @@ class Person
     puts "Hello #{name}, Your current balance is #{balance}"
   end
 
-  def increase_balance(number)
-    @balance += @bet
+  def increase_balance(balance, bet)
+    bet = bet * 2
+    $balance = balance + bet
+    puts 'You have won $#{bet}, Your balance is @balance'
   end
 
-  def decrease_balance(number)
-    @balance -= @bet
+  def decrease_balance(balance, bet)
+   $balance = balance - bet
+  #  p @balance #this is working!!
   end
 end 
 

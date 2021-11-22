@@ -1,13 +1,11 @@
-class Bet < Person
-  attr_accessor :name, :balance
+# class Bet < Person
+#   attr_accessor :name, :balance
 
-  def initialize (bet)
+  def betting
     puts "How much would you like to bet?"
     @bet = gets.to_i
-    @balance
-    p @bet
     # @balance - @bet
-    puts "You bet #{@bet}, Your current balance is #{@balance}"
+    puts "You bet #{@bet}. Good Luck!"
   end
-end
+# end
 

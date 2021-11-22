@@ -33,7 +33,7 @@ class Deck
    end
  end
 
- p @cards[10]
+ 
 
 # class Deck 
 #   def initialize 

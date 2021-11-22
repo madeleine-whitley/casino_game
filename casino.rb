@@ -17,6 +17,10 @@
 #   def initialize
 #     @person = init_person
 #   end
+require_relative 'Person'
+require_relative 'Bet'
+require_relative 'Card'
+require_relative 'Deck'
 
   def init_person
     puts "Enter your name"
@@ -24,39 +28,14 @@
     puts "Enter your balance"
     @balance = gets.to_i
   end
-# end
 
 
-class Person 
-  attr_accessor :name, :balance
 
-  def initialize (name, balance)
-    name = name
-    balance = balance 
-    puts "Hello #{name}, Your current balance is #{balance}"
-  end
 
-  def increase_balance(number)
-    @balance += number 
-  end
 
-  def decrease_balance(number)
-    @balance -= number 
-  end
-end 
-
-class Bet < Person
-  attr_accessor :name, :balance
-
-  def initialize (bet)
-    puts "How much would you like to bet?"
-    bet = gets.to_i
-    bet.Person.new(decrease_balance)
-    puts "You bet #{bet}, Your current balance is #{@balance}"
-  end
-end
 
 def slots
+  p @balance
   Bet.new(@balance)
     sym1 = rand(1..2) 
     sym2 =  rand(1..2)
@@ -75,15 +54,18 @@ def slots
     else
       puts "You Lost :( "
   end
+ p @bet
+ p @balance
   # how much you win if you win 
   # placing an intial bet
 end
+
 
 def menu
   puts '1. Player Information'
   puts '2. Slots'
   puts '3. High / Low'
-  puts '4. Three Card Monte'
+  puts '4. '
   puts '5. Check Balance'
   puts '6. Exit'
   menu_choice = gets.strip.to_i
@@ -98,10 +80,16 @@ def menu
     # food_list
     
     slots
+    
     # menu
-  # elsif menu_choice == 3
-  #   cart_items
-  #   menu
+  elsif menu_choice == 3
+    puts "Here are your cards:"
+    card = Deck.new
+    card.display_cards
+    p @current_card
+    
+    # card1 = Card.new(rand, rand, rand)
+    # card1.display_cards
   # elsif menu_choice == 4
   #   if @cond_cart_view >= 1
   #   puts "What item would you like to remove from your cart?"

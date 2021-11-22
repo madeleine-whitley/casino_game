@@ -30,7 +30,7 @@ require_relative 'Deck'
   end
 
 def slots
-  p $balance
+  puts "Your current balance is #{$balance}"
   betting
     sym1 = rand(1..2) 
     sym2 =  rand(1..2)
@@ -44,18 +44,17 @@ def slots
     # puts winner
     if winner == winning_key1
       puts "You won!"
-      current_user = Person.new(@name, $balance)
-  current_user.increase_balance($balance, @bet)
+      # current_user = Person.new(@name, $balance)
+  $current_user.increase_balance($balance, @bet)
       elsif winner == winning_key2
         puts "You won!"
-        current_user = Person.new(@name, $balance)
-  current_user.increase_balance($balance, @bet)
+        # current_user = Person.new(@name, $balance)
+  $current_user.increase_balance($balance, @bet)
     else
       p @bet
       puts "You Lost :( "
-      current_user = Person.new(@name, $balance)
-      current_user.decrease_balance($balance, @bet)
-      puts $balance 
+      # current_user = Person.new(@name, $balance)
+      $current_user.decrease_balance($balance, @bet)
   end
   # how much you win if you win 
   # placing an intial bet
@@ -64,6 +63,7 @@ def slots
   if user_choice == 'y'
     slots
   else
+    $current_user = Person.new(@name, $balance)
     menu
   end
 end
@@ -80,7 +80,7 @@ def menu
   if menu_choice == 1
     # app = App.new 
     init_person
-    current_user = Person.new(@name, $balance)
+    $current_user = Person.new(@name, $balance)
     menu
   elsif menu_choice == 2
     # puts 'Here are your available items'
@@ -93,8 +93,8 @@ def menu
   elsif menu_choice == 3
     puts "Here are your cards:"
     card = Deck.new
-    card.display_cards
-    p @current_card
+
+    
     
     # card1 = Card.new(rand, rand, rand)
     # card1.display_cards

@@ -7,15 +7,9 @@ class Card
     @rank = rank
     @suit = suit
     @color = color
+    puts "#{@rank} #{@suit} (#{@color})"
   end
  end
 
 
-# class Card 
-#   attr_accessor :face, :suit, :value
-#   def initialize face, suit, value
-#     @face = face
-#     @suit = suit
-#     @value = value
-#   end
-# end
+

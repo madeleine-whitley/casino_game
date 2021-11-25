@@ -18,22 +18,16 @@ class Person
    puts "You lost $#{bet}, your current balance is $#{$balance}"
   #  p @balance #this is working!!
   end
+
+  def increase_balance_player(balance, bet)
+    $balance = balance + bet
+    puts "You have added $#{bet}, Your balance is $#{$balance}!"
+    menu
+  end
 end 
 
 
-# class Player
-#   attr_accessor :name, :hand, :bankroll, :total
 
-#   def
-#     @name = name
-#     @hand = []
-#     @bankroll = bankroll
-#     @total = total
-#   end
-
-
-# human = Player.new "Human", [], 100, 0
-# computer = Player.new "Dealer", [], 10000, 0
 
 
 
